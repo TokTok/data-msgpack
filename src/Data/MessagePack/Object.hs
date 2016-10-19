@@ -90,21 +90,10 @@ instance Arbitrary Object where
     , ObjectInt    <$> arbitrary
     , ObjectFloat  <$> arbitrary
     , ObjectDouble <$> arbitrary
-    , ObjectStr    <$> arbitrary
-    , ObjectBin    <$> arbitrary
+    , ObjectStr    <$> (T.pack <$> arbitrary)
+    , ObjectBin    <$> (S.pack <$> arbitrary)
     , ObjectArray  <$> Gen.resize (n `div` 2) arbitrary
     , ObjectMap    <$> Gen.resize (n `div` 4) arbitrary
-    , ObjectExt    <$> arbitrary <*> arbitrary
+    , ObjectExt    <$> arbitrary <*> (S.pack <$> arbitrary)
     ]
 
-instance Arbitrary S.ByteString where
-  arbitrary = S.pack <$> arbitrary
-
-instance Arbitrary L.ByteString where
-  arbitrary = L.pack <$> arbitrary
-
-instance Arbitrary T.Text where
-  arbitrary = T.pack <$> arbitrary
-
-instance Arbitrary LT.Text where
-  arbitrary = LT.pack <$> arbitrary

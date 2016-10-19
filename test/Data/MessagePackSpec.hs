@@ -74,6 +74,14 @@ instance (Hashable k, Ord k, Eq k, Arbitrary k, Arbitrary v)
     => Arbitrary (HashMap.HashMap k v) where
   arbitrary = HashMap.fromList . Map.assocs <$> arbitrary
 
+instance Arbitrary S.ByteString where
+  arbitrary = S.pack <$> arbitrary
+
+instance Arbitrary L.ByteString where
+  arbitrary = L.pack <$> arbitrary
+
+instance Arbitrary LT.Text where
+  arbitrary = LT.pack <$> arbitrary
 
 mid :: MessagePack a => a -> a
 mid = Maybe.fromJust . unpack . pack
