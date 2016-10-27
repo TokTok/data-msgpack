@@ -1,5 +1,5 @@
 name:                 data-msgpack
-version:              0.0.6
+version:              0.0.8
 synopsis:             A Haskell implementation of MessagePack
 homepage:             http://msgpack.org/
 license:              BSD3
@@ -17,6 +17,12 @@ description:
   This is a fork of msgpack-haskell <https://github.com/msgpack/msgpack-haskell>,
   since the original author is unreachable. This fork incorporates a number of
   bugfixes and is actively being developed.
+
+extra-source-files:
+  bench/Data/MessagePack/*.hs
+  bench/Data/*.hs
+  test/Data/MessagePack/*.hs
+  test/Data/*.hs
 
 source-repository head
   type:             git
