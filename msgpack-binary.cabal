@@ -1,5 +1,5 @@
 name:                 msgpack-binary
-version:              0.0.14
+version:              0.0.15
 synopsis:             A Haskell implementation of MessagePack
 homepage:             http://msgpack.org/
 license:              BSD3
@@ -36,11 +36,10 @@ library
       Data.MessagePack.Put
   build-depends:
       base < 5
-    , binary >= 0.7.0.0
     , bytestring
-    , data-binary-ieee754
-    , msgpack-types >= 0.0.1 && < 0.1.0
+    , msgpack-types >= 0.1.0
     , text
+    , persist
 
 executable msgpack-parser
   default-language: Haskell2010
@@ -75,7 +74,7 @@ test-suite testsuite
     , hashable
     , hspec
     , msgpack-binary
-    , msgpack-types
+    , msgpack-types >= 0.1.0
     , text
     , unordered-containers
     , vector

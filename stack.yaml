@@ -1,5 +1,6 @@
 ---
 packages: [.]
-resolver: lts-14.27
+resolver: lts-16.15
 extra-deps:
-  - msgpack-types-0.0.4
+  - github: bjornbugge/hs-msgpack-types
+    commit: 741ace6183a10cc9e7a516e76b6b4a4dd622b5dd
